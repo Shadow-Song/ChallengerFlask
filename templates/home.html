@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+
+{% block title %}FluVar{% endblock %}
+{% block head %}{% endblock %}
+
+{% block body %}
+    <section class="py-4 py-xl-5">
+        <div class="container">
+            <div class="bg-dark border rounded border-0 border-dark overflow-hidden">
+                <div class="row g-0">
+                    <div class="col-md-6">
+                        <div class="text-white p-4 p-md-5">
+                            <h2 class="fw-bold text-white mb-3">甲型流感</h2>
+                            <p class="mb-4">
+                                甲流病毒是一种流感病毒，属于正无义单链RNA病毒。它是由H1N1亚型的甲型流感病毒引起的，可以通过飞沫传播和直接接触传播。该病毒可以导致发热、咳嗽、喉咙痛、鼻塞、头痛、乏力等症状，也可以导致严重的并发症，如肺炎和死亡。治疗方法包括抗病毒药物和支持性治疗。
+                            </p>
+                            <div class="my-3">
+                                <a class="btn btn-light" href="{{ url_for('a_virus') }}" role="button">了解更多</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 order-first order-md-last"
+                         style="min-height: 250px; display:flex; justify-content:center; align-items:center;">
+                        <video width="100%" height="auto" controls autoplay>
+                            <source src="{{ url_for('static', filename='assets/video/demo.mp4') }}" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container py-4 py-xl-5">
+            <div class="row mb-5">
+                <div class="col-md-8 col-xl-6 text-center mx-auto">
+                    <h2>治疗和预防措施</h2>
+                    <!--<p>Paragraph</p>-->
+                </div>
+            </div>
+            <div class="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3">
+                <div class="col d-flex align-items-center justify-content-center">
+                    <div class="card" style="width: 18rem;">
+                        <img src="{{ url_for('static', filename="assets/img/defence.jpg") }}" class="card-img-top"
+                             alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">预防流感</h5>
+                            <p class="card-text">每个年龄为6个月及以上的人都应该每年接种疫苗。</p>
+                            <a href="{{ url_for('defence') }}" class="btn btn-primary">如何预防</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col d-flex align-items-center justify-content-center">
+                    <div class="card" style="width: 18rem;">
+                        <img src="{{ url_for('static', filename="assets/img/symptom.jpg") }}" class="card-img-top"
+                             alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">症状与诊断</h5>
+                            <p class="card-text">流感会导致轻度到重度不等的疾病。点击这里了解流感的更多症状。</p>
+                            <a href="{{ url_for('symptoms') }}" class="btn btn-primary">了解症状</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col d-flex align-items-center justify-content-center">
+                    <div class="card" style="width: 18rem;">
+                        <img src="{{ url_for('static', filename="assets/img/pills.png") }}" class="card-img-top"
+                             alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">治疗</h5>
+                            <p class="card-text">抗病毒药物的处方药可以有效治疗流感。</p>
+                            <a href="{{ url_for('treat') }}" class="btn btn-primary">如何治疗</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--
+    <footer class="text-center">
+        <div class="container text-muted py-4 py-lg-5">
+            <ul class="list-inline">
+                <li class="list-inline-item me-4"><a class="link-secondary" href="#">Contact Us</a></li>
+                <li class="list-inline-item me-4"><a class="link-secondary" href="#">Git-Hub</a></li>
+            </ul>
+            <p class="mb-0">Team</p>
+        </div>
+    </footer>
+    -->
+    <script src="{{ url_for('static', filename='assets/bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/Lightbox-Gallery.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/Lightbox-Gallery-baguetteBox.min.js') }}"></script>
+
+
+{% endblock %}

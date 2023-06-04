@@ -1,0 +1,11 @@
+Model Information:
+* title:	Influenza Virus
+* source:	https://sketchfab.com/3d-models/influenza-virus-b3ef4264dbcf4d59a75b3c551484fc96
+* author:	Glasgow Life Sciences (https://sketchfab.com/GLS)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Influenza Virus" (https://sketchfab.com/3d-models/influenza-virus-b3ef4264dbcf4d59a75b3c551484fc96) by Glasgow Life Sciences (https://sketchfab.com/GLS) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block title %}预防季节性流感{% endblock %}
+{% block head %}{% endblock %}
+
+{% block body %}
+    <div class="m-4">
+        <div class="container">
+            <div class="row">
+                <div class="col"></div>
+                <div class="col-8">
+                    <div class="container d-flex flex-column align-items-center py-4 py-xl-5">
+                        <div class="row">
+                            <div class="col text-center">
+                                <h2>流感治疗</h2>
+                                <p>Treatment</p>
+                            </div>
+                        </div>
+                        <div class="row gy-4 w-100" style="max-width: 800px;">
+                            <div class="col-12">
+                                <div class="card"><img class="card-img w-100 d-block"
+                                                       src="{{ url_for('static', filename='assets/img/doctor.jpg') }}"
+                                                       alt=""/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mb-5">
+                            <div class="col text-center mx-auto">
+                                <p style="padding-top: 20px;">需要注意的是，在患甲流时要及时就医，听从医生建议进行治疗。同时，也需要遵守相关卫生规定，减少疫情传播。</p>
+                            </div>
+                        </div>
+                        <div class="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-4">
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-body p-4">
+                                        <h4 class="card-title">根据症状进行治疗</h4>
+                                        <p class="card-text">在发病早期和轻症患者中，主要采用对症治疗，帮助患者缓解症状和舒适度。</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-body p-4">
+                                        <h4 class="card-title">抗病毒药物治疗</h4>
+                                        <p class="card-text">对于重症甲流患者，一些抗病毒药物可用于辅助治疗。</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-body p-4">
+                                        <h4 class="card-title">注意休息</h4>
+                                        <p class="card-text">病人需要充足的休息，避免劳累。</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-body p-4">
+                                        <h4 class="card-title">加强营养饮食</h4>
+                                        <p class="card-text">摄取充足的水分、蛋白质和维生素，有利于身体恢复。</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                </div>
+            </div>
+            <div class="row">
+            </div>
+        </div>
+    </div>
+{% endblock %}

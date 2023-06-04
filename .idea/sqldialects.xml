@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/data/virus_h10n8 ha gc content.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/data/virus_h10n8 na gc content.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/data/virus_h1n1 ha.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/data/virus_h1n1 na.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/data/virus_h3n2 ha.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/data/virus_h3n2 na.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/data/virus_h5n1 nagc content.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/data/virus_h5n1ha.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/data/virus_h7n7 ha gc content.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/data/virus_h7n7 na gc content.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/data/virus_h7n9 ha cds.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/data/virus_h7n9 ha gc content.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/data/virus_h7n9 na cds.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/data/virus_h9n2 ha cds.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/data/virus_h9n2 ha gc content.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/data/virus_h9n2 na gc content.sql" dialect="MySQL" />
+    <file url="PROJECT" dialect="SQLite" />
+  </component>
+</project>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Banner-Heading-Image-images.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Lightbox-Gallery-baguetteBox.min.css') }} ">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Navbar-With-Button-icons.css') }}">
+    {% block head %}{% endblock %}
+</head>
+<body>
+<nav class="navbar navbar-light navbar-expand-md py-3">
+    <div class="container">
+        <div class="row">
+            <!--<img src="{{ url_for('static', filename='assets/img/logo.svg') }}" alt="logo">-->
+            <a class="navbar-brand d-flex align-items-center"
+                              href="{{ url_for('home') }}"><span>甲流研究星球</span></a>
+        </div>
+
+        <button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span
+                class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navcol-1">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item"><a class="nav-link active" href="{{ url_for('home') }}">首页</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('upload') }}">上传&分析</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">基因序列数据库</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">流行病学数据库</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">学术交流平台</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('about') }}">关于我们</a></li>
+            </ul>
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Find" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Find</button>
+            </form>
+        </div>
+    </div>
+</nav>
+{% block body %}{% endblock %}
+<script src="{{ url_for('static', filename='bootstrap/js/bootstrap.min.js') }}"></script>
+</body>
+</html>

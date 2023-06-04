@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+{% block title %}预防季节性流感{% endblock %}
+{% block head %}{% endblock %}
+
+{% block body %}
+    <div class="m-4">
+        <div class="container">
+            <div class="row">
+                <div class="col"></div>
+                <div class="col-8">
+                    <div class="container d-flex flex-column align-items-center py-4 py-xl-5">
+                        <div class="row">
+                            <div class="col text-center">
+                                <h2>预防季节性流感</h2>
+                                <p>Prevent Seasonal Flu</p>
+                            </div>
+                        </div>
+                        <div class="row gy-4 w-100" style="max-width: 800px;">
+                            <div class="col-12">
+                                <div class="card"><img class="card-img w-100 d-block"
+                                                       src="{{ url_for('static', filename='assets/img/family.jpg') }}"
+                                                       alt=""/>
+                                    <div class="card-img-overlay text-center d-flex flex-column justify-content-center align-items-center p-4">
+                                        <h3 style="color: white">采取行动，预防流感</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p style="padding-top: 20px;">
+                            预防流感的最佳方法是每年接种流感疫苗。但养成良好的健康习惯也很重要，比如遮盖咳嗽和经常洗手。这可以帮助阻止细菌传播并预防流感。
+                        </p>
+                        <div class="row mb-5">
+                            <div class="col text-center mx-auto">
+                                <h4>采取以下四个措施来预防流感</h4>
+                            </div>
+                        </div>
+                        <div class="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-4">
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-body p-4">
+                                        <h4 class="card-title">接种疫苗</h4>
+                                        <p class="card-text">目前已有针对甲流疫苗，接种疫苗可以有效预防甲流。</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-body p-4">
+                                        <h4 class="card-title">维持良好卫生习惯</h4>
+                                        <p class="card-text">勤洗手、避免与感染者近距离接触、咳嗽或打喷嚏时用纸巾等。</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-body p-4">
+                                        <h4 class="card-title">强化锻炼身体</h4>
+                                        <p class="card-text">加强身体锻炼，增强身体免疫力。</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-body p-4">
+                                        <h4 class="card-title">保持良好营养及休息</h4>
+                                        <p class="card-text">适当补充维生素及矿物质、合理膳食搭配、睡眠充足。</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                </div>
+            </div>
+            <div class="row">
+            </div>
+        </div>
+    </div>
+{% endblock %}

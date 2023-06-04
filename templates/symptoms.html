@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block title %}流感的症状和诊断{% endblock %}
+{% block head %}{% endblock %}
+
+{% block body %}
+    <div class="m-4">
+        <div class="container">
+            <div class="row">
+                <div class="col"></div>
+                <div class="col-8">
+                    <div class="container d-flex flex-column align-items-center py-4 py-xl-5">
+                        <div class="row">
+                            <div class="col text-center">
+                                <h2>流感的症状和诊断</h2>
+                                <p>Symptoms & Diagnosis</p>
+                            </div>
+                        </div>
+                        <div class="row gy-4 w-100" style="max-width: 800px;">
+                            <div class="col-12">
+                                <div class="card">
+                                    <img class="card-img w-100 d-block"
+                                         src="{{ url_for('static', filename='assets/img/child.png') }}"
+                                         alt=""/>
+                                </div>
+                            </div>
+                        </div>
+                        <p style="padding-top: 20px;">
+                            是一种由流感病毒引起的传染性呼吸道疾病。它可以引起轻微到严重的疾病，有时还可能导致死亡。本页提供有关流感症状、并发症和诊断的资源。
+                        </p>
+                        <div class="container">
+                            <div class="bg border rounded border-1 border overflow-hidden">
+                                <div class="row g-0">
+                                    <div class="col-md-6">
+                                        <div class="text p-4 p-md-5">
+                                            <h2 class="fw-bold text mb-3">症状</h2>
+                                            <p class="mb-4">
+                                                1. 发热：发热是流感最常见的症状之一，体温一般会在38℃以上，可持续3-5天；<br>
+                                                2. 咳嗽：由于呼吸道受到感染，患者往往会出现咳嗽、喉咙疼痛等症状；<br>
+                                                3. 疲劳和乏力：流感会导致患者感到疲劳和乏力，甚至没有力气起床；<br>
+                                                4. 鼻塞或流鼻涕：部分患者会出现鼻塞或流鼻涕等上呼吸道症状；<br>
+                                                5. 肌肉和关节疼痛：流感可以引起全身肌肉和关节的疼痛。<br>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="text p-4 p-md-5">
+                                            <h2 class="fw-bold text mb-3">诊断方式</h2>
+                                            <p class="mb-4">
+                                                1. 临床症状诊断：医生可以根据患者的临床表现和病史进行初步判断；<br>
+                                                2.
+                                                实验室检测诊断：常用实验室检查包括鼻咽拭子检测和血清学检测，这些检查可以进一步确认病原体和病毒亚型等信息，对于临床治疗和流行病学监测都具有重要意义。
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                </div>
+            </div>
+            <div class="row">
+            </div>
+        </div>
+    </div>
+{% endblock %}
