@@ -1,0 +1,18 @@
+{% extends 'database_base.html' %}
+{% block title %}病毒数据库{% endblock %}
+{% block body %}
+    <table>
+        <tr>
+            {% for column_name in column_names %}
+                <th>{{ column_name }}</th>
+            {% endfor %}
+        </tr>
+        {% for row in data %}
+            <tr>
+                {% for value in row %}
+                    <td>{{ value }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

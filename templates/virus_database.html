@@ -1,0 +1,236 @@
+{% extends 'base.html' %}
+
+{% block title %}病毒数据库{% endblock %}
+
+{% block head %}{% endblock %}
+
+{% block body %}
+    <div class="container py-4 py-xl-5">
+        <div class="row mb-5">
+            <div class="col-md-8 col-xl-6 text-center mx-auto">
+                <h2>病毒数据库</h2>
+                <p>Say Something</p>
+            </div>
+        </div>
+        <div class="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3">
+            <div class="col d-flex align-items-center justify-content-center">
+                <div class="card" style="width: 18rem;">
+                    <img src="{{ url_for('static', filename='assets/img/h1n1.jpg') }}"
+                         class="card-img-top"
+                         alt="h1n1">
+                    <div class="card-body">
+                        <h5 class="card-title">H1N1</h5>
+                        <p class="card-text">Say Something</p>
+                        <a href="{{ url_for('h1n1_database') }}" class="btn btn-primary">查看数据</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col d-flex align-items-center justify-content-center">
+                <div class="card" style="width: 18rem;">
+                    <img src="{{ url_for('static', filename='assets/img/h3n2.jpg') }}"
+                         class="card-img-top"
+                         alt="h3n2">
+                    <div class="card-body">
+                        <h5 class="card-title">H3N2</h5>
+                        <p class="card-text">Say Something</p>
+                        <a href="{{ url_for('h3n2_database') }}" class="btn btn-primary">查看数据</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col d-flex align-items-center justify-content-center">
+                <div class="card" style="width: 18rem;">
+                    <img src="{{ url_for('static', filename='assets/img/h5n1.jpg') }}"
+                         class="card-img-top"
+                         alt="h5n1">
+                    <div class="card-body">
+                        <h5 class="card-title">H5N1</h5>
+                        <p class="card-text">Say Something</p>
+                        <a href="{{ url_for('h5n1_database') }}" class="btn btn-primary">查看数据</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3" style="padding-top: 10px">
+            <div class="col d-flex align-items-center justify-content-center">
+                <div class="card" style="width: 18rem;">
+                    <img src="{{ url_for('static', filename='assets/img/h7n7.jpeg') }}"
+                         class="card-img-top"
+                         alt="h7n7">
+                    <div class="card-body">
+                        <h5 class="card-title">H7N7</h5>
+                        <p class="card-text">Say Something</p>
+                        <a href="{{ url_for('h7n7_database') }}" class="btn btn-primary">查看数据</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col d-flex align-items-center justify-content-center">
+                <div class="card" style="width: 18rem;">
+                    <img src="{{ url_for('static', filename='assets/img/h7n9.jpeg') }}"
+                         class="card-img-top"
+                         alt="h7n9">
+                    <div class="card-body">
+                        <h5 class="card-title">H7N9</h5>
+                        <p class="card-text">Say Something</p>
+                        <a href="{{ url_for('h7n9_database') }}" class="btn btn-primary">查看数据</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col d-flex align-items-center justify-content-center">
+                <div class="card" style="width: 18rem;">
+                    <img src="{{ url_for('static', filename='assets/img/h9n2.jpeg') }}"
+                         class="card-img-top"
+                         alt="h9n2">
+                    <div class="card-body">
+                        <h5 class="card-title">H9N2</h5>
+                        <p class="card-text">Say Something</p>
+                        <a href="{{ url_for('h9n2_database') }}" class="btn btn-primary">查看数据</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3" style="padding-top: 10px">
+            <div class="col d-flex align-items-center justify-content-center">
+                <div class="card" style="width: 18rem;">
+                    <img src="{{ url_for('static', filename='assets/img/h10n8.jpeg') }}"
+                         class="card-img-top"
+                         alt="h10n8">
+                    <div class="card-body">
+                        <h5 class="card-title">H10N8</h5>
+                        <p class="card-text">Say Something</p>
+                        <a href="{{ url_for('h10n8_database') }}" class="btn btn-primary">查看数据</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+            </div>
+            <div class="col">
+            </div>
+        </div>
+    </div>
+    <!--
+    <div class="m-4">
+        <div class="container">
+            <div class="row">
+                <div class="col"></div>
+                <div class="col-8">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <h1>病毒数据库</h1>
+                            </div>
+                        </div>
+                        <div class="row" style="padding-top: 20px;">
+                            <div class="col">
+                                <div class="card" style="width: 18rem;">
+                                    <img src="{{ url_for('static', filename='assets/img/h1n1.jpeg') }}"
+                                         class="card-img-top"
+                                         alt="h1n1">
+                                    <div class="card-body">
+                                        <h5 class="card-title">H1N1</h5>
+                                        <p class="card-text">Say Something</p>
+                                        <a href="#" class="btn btn-primary">查看数据</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card" style="width: 18rem;">
+                                    <img src="{{ url_for('static', filename='assets/img/h3n2.jpeg') }}"
+                                         class="card-img-top"
+                                         alt="h3n2">
+                                    <div class="card-body">
+                                        <h5 class="card-title">H3N2</h5>
+                                        <p class="card-text">Say Something</p>
+                                        <a href="#" class="btn btn-primary">查看数据</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card" style="width: 18rem;">
+                                    <img src="{{ url_for('static', filename='assets/img/h5n1.jpeg') }}"
+                                         class="card-img-top"
+                                         alt="h5n1">
+                                    <div class="card-body">
+                                        <h5 class="card-title">H5N1</h5>
+                                        <p class="card-text">Say Something</p>
+                                        <a href="#" class="btn btn-primary">查看数据</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="padding-top: 20px;">
+                            <div class="col">
+                                <div class="card" style="width: 18rem;">
+                                    <img src="{{ url_for('static', filename='assets/img/h7n7.jpeg') }}"
+                                         class="card-img-top"
+                                         alt="h7n7">
+                                    <div class="card-body">
+                                        <h5 class="card-title">H7N7</h5>
+                                        <p class="card-text">Say Something</p>
+                                        <a href="#" class="btn btn-primary">查看数据</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card" style="width: 18rem;">
+                                    <img src="{{ url_for('static', filename='assets/img/h7n9.jpeg') }}"
+                                         class="card-img-top"
+                                         alt="h7n9">
+                                    <div class="card-body">
+                                        <h5 class="card-title">H7N9</h5>
+                                        <p class="card-text">Say Something</p>
+                                        <a href="#" class="btn btn-primary">查看数据</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card" style="width: 18rem;">
+                                    <img src="{{ url_for('static', filename='assets/img/h7n9.jpeg') }}"
+                                         class="card-img-top"
+                                         alt="h7n9">
+                                    <div class="card-body">
+                                        <h5 class="card-title">H7N9</h5>
+                                        <p class="card-text">Say Something</p>
+                                        <a href="#" class="btn btn-primary">查看数据</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="padding-top: 20px;">
+                            <div class="col">
+                                <div class="card" style="width: 18rem;">
+                                    <img src="{{ url_for('static', filename='assets/img/h9n2.jpeg') }}"
+                                         class="card-img-top"
+                                         alt="h9n2">
+                                    <div class="card-body">
+                                        <h5 class="card-title">H9N2</h5>
+                                        <p class="card-text">Say Something</p>
+                                        <a href="#" class="btn btn-primary">查看数据</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card" style="width: 18rem;">
+                                    <img src="{{ url_for('static', filename='assets/img/h10n8.jpeg') }}"
+                                         class="card-img-top"
+                                         alt="h10n8">
+                                    <div class="card-body">
+                                        <h5 class="card-title">H10N8</h5>
+                                        <p class="card-text">Say Something</p>
+                                        <a href="#" class="btn btn-primary">查看数据</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                </div>
+            </div>
+            <div class="row">
+            </div>
+        </div>
+    </div>
+    -->
+{% endblock %}
