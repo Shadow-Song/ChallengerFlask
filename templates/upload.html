@@ -4,31 +4,14 @@
 {% block head %}{% endblock %}
 
 {% block body %}
-    <div class="modal fade" id="warning-modal" tabindex="-1" role="dialog">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">警告</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    请先选择要上传的文件
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
-                </div>
-            </div>
-        </div>
-    </div>
     <section class="py-4 py-xl-5">
         <div class="container">
             <div class="text-center p-4 p-lg-5">
                 <h1 class="fw-bold mb-4">上传您的基因序列，我们会为您进行分析</h1>
                 <form action="" method=post enctype=multipart/form-data>
                     <div class="mb-3">
-                        <input class="form-control" type="file" name="file">
+                        <label for="text" class="form-label">输入病毒数据</label>
+                        <textarea class="form-control" id="text" rows="3" name="text"></textarea>
                     </div>
                     <div class="col-auto">
                         <button type="submit" class="btn btn-primary mb-3">上传</button>
@@ -37,18 +20,23 @@
             </div>
         </div>
     </section>
-
+    <div class="m-4">
+        <div class="container">
+            <div class="row">
+                <div class="col"></div>
+                <div class="col-8">
+                    <h3>样例</h3>
+                    <p>您应该输入1775个病毒数据，用半角逗号分割。</p>
+                    <p>例如：</p>
+                    <img src="{{ url_for('static', filename='assets/img/upload_example.png') }}" alt="example"
+                         style="max-width: 100%; height: auto">
+                </div>
+                <div class="col"></div>
+            </div>
+            <div class="row">
+            </div>
+        </div>
+    </div>
     <script src="{{ url_for('static', filename='jquery/jquery.3.5.1.min.js') }}"></script>
-    <script>
-        $(document).ready(function () {
-            $('#upload-btn').click(function (e) {
-                var file = $('input[type=file]').val();
-                if ($.trim(file) === '') {
-                    e.preventDefault();
-                    $('#warning-modal').modal('show');
-                }
-            });
-        });
 
-    </script>
 {% endblock %}

@@ -13,11 +13,25 @@
 <body>
 <nav class="navbar navbar-light navbar-expand-md py-3">
     <div class="container">
+
+        <a class="navbar-brand" href="{{ url_for('home') }}">
+            <img src="{{ url_for('static', filename='assets/img/logo.svg') }}" alt="Logo" width="60" height="60"
+                 class="d-inline-block align-text-center">
+            甲流研究星球
+        </a>
+        <!--
         <div class="row">
-            <!--<img src="{{ url_for('static', filename='assets/img/logo.svg') }}" alt="logo">-->
-            <a class="navbar-brand d-flex align-items-center"
-                              href="{{ url_for('home') }}"><span>甲流研究星球</span></a>
-        </div>
+            <div class="column">
+                <img src="{{ url_for('static', filename='assets/img/logo.svg') }}" alt="logo" width="30"
+                     height="30">
+            </div>
+            <div class="column">
+                <a class="navbar-brand d-flex align-items-center"
+                   href="{{ url_for('home') }}">
+                    <span>甲流研究星球</span>
+                </a>
+            </div>
+-->
 
         <button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span
                 class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>

@@ -1,23 +1,16 @@
 from flask import Flask, render_template, request, redirect, url_for
 import os
 import pymysql
+from src import sklearn_neural_network_classification
 
 app = Flask(__name__)
-UPLOAD_FOLDER = './static/uploads'  # 上传文件到这里
-ALLOWED_EXTENSIONS = {'csv'}  # 允许的格式,保证安全性
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # 限制文件大小
 conn = pymysql.connect(
     host='localhost',
     user='root',
     password='Sj990808',
     db='virus'
 )
-
-
-def allowed_file(filename):
-    return '.' in filename and \
-        filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
+serial = ''
 
 
 @app.route('/')
@@ -50,23 +43,46 @@ def about():
     return render_template('about.html')
 
 
-@app.route('/analyze')
-def analyze():
-    return render_template('analyze.html')
-
-
 @app.route('/upload', methods=['GET', 'POST'])
 def upload():
-    try:
-        if request.method == 'POST':
-            list_file = request.files['file']
-            if list_file and allowed_file(list_file.filename):
-                list_filename = 'file.' + list_file.filename.rsplit('.', 1)[1]
-                list_file.save(os.path.join(app.config['UPLOAD_FOLDER'], list_filename))
-                redirect(url_for('analyze'))
-        return render_template("upload.html")
-    except:
-        return "未选择上传文件或文件类型不支持"
+    if request.method == 'POST':
+        text = request.form['text']
+        global serial
+        serial = text
+
+        return redirect(url_for('analyze'))
+
+    else:
+        return render_template('upload.html')
+
+
+@app.route('/analyze')
+def analyze():
+    global serial
+    result = sklearn_neural_network_classification.run(serial)
+    prediction = result[0]
+    r = result[1]
+    if prediction == ['H1N1']:
+        return render_template('h1n1.html', r=r)
+    elif prediction == ['H3N2']:
+        return render_template('h3n2.html', r=r)
+    elif prediction == ['H5N1']:
+        return render_template('h5n1.html', r=r)
+    elif prediction == ['H7N7']:
+        return render_template('h7n7.html', r=r)
+    elif prediction == ['H7N9']:
+        return render_template('h7n9.html', r=r)
+    elif prediction == ['H9N2']:
+        return render_template('h9n2.html', r=r)
+    elif prediction == ['H10N8']:
+        return render_template('h10n8.html', r=r)
+    else:
+        return prediction+'分析不成功，请重新输入数据。'
+
+
+@app.route('/test')
+def test():
+    return render_template('analyze.html')
 
 
 @app.route('/database')
@@ -74,8 +90,8 @@ def database():
     return render_template('virus_database.html')
 
 
-@app.route('/database/h1n1')
-def h1n1_database():
+@app.route('/database/h1n1ha')
+def h1n1ha_database():
     cur = conn.cursor()
     cur.execute("SELECT * FROM `h1n1 ha`")
     data = cur.fetchall()
@@ -84,8 +100,18 @@ def h1n1_database():
     return render_template('virus_data.html', data=data, column_names=column_names)
 
 
-@app.route('/database/h3n2')
-def h3n2_database():
+@app.route('/database/h1n1na')
+def h1n1na_database():
+    cur = conn.cursor()
+    cur.execute("SELECT * FROM `h1n1 na`")
+    data = cur.fetchall()
+    column_names = [col[0] for col in cur.description]
+    cur.close()
+    return render_template('virus_data.html', data=data, column_names=column_names)
+
+
+@app.route('/database/h3n2ha')
+def h3n2ha_database():
     cur = conn.cursor()
     cur.execute("SELECT * FROM `h3n2 ha`")
     data = cur.fetchall()
@@ -94,8 +120,18 @@ def h3n2_database():
     return render_template('virus_data.html', data=data, column_names=column_names)
 
 
-@app.route('/database/h5n1')
-def h5n1_database():
+@app.route('/database/h3n2na')
+def h3n2na_database():
+    cur = conn.cursor()
+    cur.execute("SELECT * FROM `h3n2 na`")
+    data = cur.fetchall()
+    column_names = [col[0] for col in cur.description]
+    cur.close()
+    return render_template('virus_data.html', data=data, column_names=column_names)
+
+
+@app.route('/database/h5n1ha')
+def h5n1ha_database():
     cur = conn.cursor()
     cur.execute("SELECT * FROM `h5n1ha`")
     data = cur.fetchall()
@@ -104,8 +140,18 @@ def h5n1_database():
     return render_template('virus_data.html', data=data, column_names=column_names)
 
 
-@app.route('/database/h7n7')
-def h7n7_database():
+@app.route('/database/h5n1na')
+def h5n1na_database():
+    cur = conn.cursor()
+    cur.execute("SELECT * FROM `h5n1 nagc content`")
+    data = cur.fetchall()
+    column_names = [col[0] for col in cur.description]
+    cur.close()
+    return render_template('virus_data.html', data=data, column_names=column_names)
+
+
+@app.route('/database/h7n7ha')
+def h7n7ha_database():
     cur = conn.cursor()
     cur.execute("SELECT * FROM `h7n7 ha gc content`")
     data = cur.fetchall()
@@ -114,18 +160,48 @@ def h7n7_database():
     return render_template('virus_data.html', data=data, column_names=column_names)
 
 
-@app.route('/database/h7n9')
-def h7n9_database():
+@app.route('/database/h7n7na')
+def h7n7na_database():
     cur = conn.cursor()
-    cur.execute("SELECT * FROM `h7n7 ha gc content`")
+    cur.execute("SELECT * FROM `h7n7 na gc content`")
     data = cur.fetchall()
     column_names = [col[0] for col in cur.description]
     cur.close()
     return render_template('virus_data.html', data=data, column_names=column_names)
 
 
-@app.route('/database/h9n2')
-def h9n2_database():
+@app.route('/database/h7n9ha')
+def h7n9ha_database():
+    cur = conn.cursor()
+    cur.execute("SELECT * FROM `h7n9 ha cds`")
+    data = cur.fetchall()
+    column_names = [col[0] for col in cur.description]
+    cur.close()
+    return render_template('virus_data.html', data=data, column_names=column_names)
+
+
+@app.route('/database/h7n9ha_gc')
+def h7n9ha_gc_database():
+    cur = conn.cursor()
+    cur.execute("SELECT * FROM `h7n9 ha gc content`")
+    data = cur.fetchall()
+    column_names = [col[0] for col in cur.description]
+    cur.close()
+    return render_template('virus_data.html', data=data, column_names=column_names)
+
+
+@app.route('/database/h7n9na')
+def h7n9na_database():
+    cur = conn.cursor()
+    cur.execute("SELECT * FROM `h7n9 na cds`")
+    data = cur.fetchall()
+    column_names = [col[0] for col in cur.description]
+    cur.close()
+    return render_template('virus_data.html', data=data, column_names=column_names)
+
+
+@app.route('/database/h9n2ha')
+def h9n2ha_database():
     cur = conn.cursor()
     cur.execute("SELECT * FROM `h9n2 ha cds`")
     data = cur.fetchall()
@@ -134,8 +210,28 @@ def h9n2_database():
     return render_template('virus_data.html', data=data, column_names=column_names)
 
 
-@app.route('/database/h10n8')
-def h10n8_database():
+@app.route('/database/h9n2ha_gc')
+def h9n2ha_gc_database():
+    cur = conn.cursor()
+    cur.execute("SELECT * FROM `h9n2 ha gc content`")
+    data = cur.fetchall()
+    column_names = [col[0] for col in cur.description]
+    cur.close()
+    return render_template('virus_data.html', data=data, column_names=column_names)
+
+
+@app.route('/database/h9n2na_gc')
+def h9n2na_gc_database():
+    cur = conn.cursor()
+    cur.execute("SELECT * FROM `h9n2 na gc content`")
+    data = cur.fetchall()
+    column_names = [col[0] for col in cur.description]
+    cur.close()
+    return render_template('virus_data.html', data=data, column_names=column_names)
+
+
+@app.route('/database/h10n8ha')
+def h10n8ha_database():
     cur = conn.cursor()
     cur.execute("SELECT * FROM `h10n8 ha gc content`")
     data = cur.fetchall()
@@ -144,11 +240,14 @@ def h10n8_database():
     return render_template('virus_data.html', data=data, column_names=column_names)
 
 
-@app.route('/uploads', methods=['GET', 'POST'])
-def uploads():
-    file = request.files['file']
-    file.save('./static/uploads')
-    return render_template('upload.html')
+@app.route('/database/h10n8na')
+def h10n8na_database():
+    cur = conn.cursor()
+    cur.execute("SELECT * FROM `h10n8 na gc content`")
+    data = cur.fetchall()
+    column_names = [col[0] for col in cur.description]
+    cur.close()
+    return render_template('virus_data.html', data=data, column_names=column_names)
 
 
 if __name__ == '__main__':
