@@ -1,16 +1,23 @@
 from flask import Flask, render_template, request, redirect, url_for
-import os
+from flask_mail import Mail, Message
 import pymysql
 from src import sklearn_neural_network_classification
 
 app = Flask(__name__)
+mail = Mail(app)
 conn = pymysql.connect(
     host='localhost',
     user='root',
-    password='Sj990808',
+    password='example',
     db='virus'
 )
 serial = ''
+app.config['MAIL_SERVER'] = 'smtp.mail.me.com'
+app.config['MAIL_PORT'] = 587
+app.config['MAIL_USERNAME'] = 'example@icloud.com'
+app.config['MAIL_PASSWORD'] = '*****'
+app.config['MAIL_USE_TLS'] = False
+app.config['MAIL_USE_SSL'] = True
 
 
 @app.route('/')
@@ -20,7 +27,7 @@ def home():
 
 @app.route('/aVirus')
 def a_virus():
-    return render_template('aVirus.html')
+    return render_template('a_virus.html')
 
 
 @app.route('/defence')
@@ -38,9 +45,17 @@ def treat():
     return render_template('treat.html')
 
 
-@app.route('/about')
+@app.route('/about', methods=['GET', 'POST'])
 def about():
-    return render_template('about.html')
+    if request.method == 'POST':
+        name = request.form['name']
+        email = request.form['email']
+        message = request.form['message']
+        msg = Message(f'Name:{name}, 1', sender='sender@icloud.com', recipients=['recipients@icloud.com'])
+        msg.body = message
+        mail.send(msg)
+    else:
+        return render_template('about.html')
 
 
 @app.route('/upload', methods=['GET', 'POST'])
@@ -49,7 +64,6 @@ def upload():
         text = request.form['text']
         global serial
         serial = text
-
         return redirect(url_for('analyze'))
 
     else:
@@ -59,30 +73,33 @@ def upload():
 @app.route('/analyze')
 def analyze():
     global serial
-    result = sklearn_neural_network_classification.run(serial)
-    prediction = result[0]
-    r = result[1]
-    if prediction == ['H1N1']:
-        return render_template('h1n1.html', r=r)
-    elif prediction == ['H3N2']:
-        return render_template('h3n2.html', r=r)
-    elif prediction == ['H5N1']:
-        return render_template('h5n1.html', r=r)
-    elif prediction == ['H7N7']:
-        return render_template('h7n7.html', r=r)
-    elif prediction == ['H7N9']:
-        return render_template('h7n9.html', r=r)
-    elif prediction == ['H9N2']:
-        return render_template('h9n2.html', r=r)
-    elif prediction == ['H10N8']:
-        return render_template('h10n8.html', r=r)
-    else:
-        return prediction+'分析不成功，请重新输入数据。'
+    try:
+        result = sklearn_neural_network_classification.run(serial)
+        prediction = result[0]
+        r = result[1]
+        if prediction == ['H1N1']:
+            return render_template('h1n1.html', r=r)
+        elif prediction == ['H3N2']:
+            return render_template('h3n2.html', r=r)
+        elif prediction == ['H5N1']:
+            return render_template('h5n1.html', r=r)
+        elif prediction == ['H7N7']:
+            return render_template('h7n7.html', r=r)
+        elif prediction == ['H7N9']:
+            return render_template('h7n9.html', r=r)
+        elif prediction == ['H9N2']:
+            return render_template('h9n2.html', r=r)
+        elif prediction == ['H10N8']:
+            return render_template('h10n8.html', r=r)
+        else:
+            return '分析不成功，请重新输入数据。'
+    except ValueError:
+        return '输入的值不够，应该输入1775个。'
 
 
 @app.route('/test')
 def test():
-    return render_template('analyze.html')
+    return render_template('test.html')
 
 
 @app.route('/database')
@@ -117,7 +134,6 @@ def h3n2ha_database():
     data = cur.fetchall()
     column_names = [col[0] for col in cur.description]
     cur.close()
-    return render_template('virus_data.html', data=data, column_names=column_names)
 
 
 @app.route('/database/h3n2na')

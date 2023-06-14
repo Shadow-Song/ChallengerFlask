@@ -17,6 +17,6 @@
     <file url="file://$PROJECT_DIR$/data/virus_h9n2 ha cds.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/data/virus_h9n2 ha gc content.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/data/virus_h9n2 na gc content.sql" dialect="MySQL" />
-    <file url="PROJECT" dialect="SQLite" />
+    <file url="PROJECT" dialect="MySQL" />
   </component>
 </project>

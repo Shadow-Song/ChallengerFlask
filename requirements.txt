@@ -1,0 +1,5 @@
+Flask==2.3.2
+Flask_Mail==0.9.1
+matplotlib==3.7.1
+PyMySQL==1.0.3
+scikit_learn==1.2.2

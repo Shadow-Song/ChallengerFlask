@@ -1,11 +1,9 @@
 from sklearn.neural_network import MLPClassifier
-# from sklearn import datasets
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 import matplotlib.pyplot as plt
-import numpy as np
 
-mydataset = {
+my_data_set = {
     'Species': ['H1N1', 'H1N1', 'H1N1', 'H1N1', 'H1N1', 'H1N1', 'H1N1', 'H1N1', 'H1N1', 'H1N1', 'H1N1', 'H1N1',
                 'H3N2', 'H3N2', 'H3N2', 'H3N2', 'H3N2', 'H3N2', 'H3N2', 'H3N2', 'H3N2', 'H3N2', 'H3N2', 'H3N2', 'H3N2',
                 'H3N2', 'H3N2', 'H3N2', 'H3N2',
@@ -16551,13 +16549,12 @@ mydataset = {
 
 def run(input_str: str) -> list:
     input_list = input_str.split(",")
-    arr_1d = np.array(input_list, dtype=float)
     num = list(map(float, input_list))
 
-    predataset = {
+    pre_data_set = {
         'Gc-content': [num]
     }
-    result = multi_class_nn(predataset=predataset)
+    result = multi_class_nn(pre_data_set=pre_data_set)
     return result
 
 
@@ -16574,24 +16571,23 @@ def test_validate(x_test, y_test, y_predict, classifier):
 
 
 # Neural network numerical classification
-def multi_class_nn(predataset: dict):
+def multi_class_nn(pre_data_set: dict):
     # digits = datasets.load_digits()
     # x = digits['data']
     # y = digits['target']
-    x = mydataset["Gc-content"]
-    y = mydataset["Species"]
-    test = predataset['Gc-content']
+    x = my_data_set["Gc-content"]
+    y = my_data_set["Species"]
+    test = pre_data_set['Gc-content']
     # Normalization
     ss = StandardScaler()
     x_regular = ss.fit_transform(x)
-    test_regular = ss.fit_transform(test)
     # Division
     x_train, x_test, y_train, y_test = train_test_split(x_regular, y, test_size=0.30)
     # print(x_train)
     # print(x_test)
     # print(y_train)
     # print(y_test)
-    clf = MLPClassifier(solver='lbfgs', alpha=1e-5, hidden_layer_sizes=(100), random_state=7)
+    clf = MLPClassifier(solver='lbfgs', alpha=1e-5, hidden_layer_sizes=100, random_state=7)
     clf.fit(x_train, y_train)
     # Effects
     r = clf.score(x_train, y_train)
